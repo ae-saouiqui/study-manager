@@ -1,0 +1,40 @@
+main{
+    overflow-y: auto !important;
+    height: 120vh !important;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+header{
+    background-color: #0d1137;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+body{
+    height: 100vh !important;
+    overflow-y: hidden !important;
+}
+table{
+    background-color: transparent !important;
+}
+thead td{
+    padding: 30px !important;
+    font-size: 30px;
+    background-color: #ff7e67 !important;
+    color: #fff !important;
+}
+tbody td{
+    padding: 20px !important;
+}
+tbody tr:hover{
+    transform: translateZ(10px) !important;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+tbody{
+    perspective-origin:10px 10px;
+    perspective:1000px !important;
+}

@@ -1,0 +1,32 @@
+body{
+    height: 100vh !important;
+    overflow-y: hidden !important;
+}
+main{
+    height: 120vh !important;
+    overflow-y: auto !important;
+}
+button{
+    background-color: #b30427;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    outline:none;
+    border: none;
+}
+table{
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+tbody td{
+    padding: 20px !important;
+}
+tbody tr:hover{
+    transform: translateZ(10px) !important;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+tbody{
+    perspective-origin:10px 10px;
+    perspective:1000px !important;
+}

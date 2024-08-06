@@ -1,0 +1,108 @@
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.form-container{
+    padding:10px;
+    margin-left: 20px;
+}
+h1{
+    margin:10px 0 0 10px;
+}
+label,input{
+    display: inline-block;
+    margin: 5px 0;
+}
+label{
+    background-color: #0a58ca;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 30px;
+    color: #fff;
+}
+.sidebar{
+    height: 150vh !important;
+}
+input[type="text"],input[type="password"],input[type="email"],input[type="date"],select{
+    /*border: solid 1px #a7acb1;*/
+    border-bottom:solid 1px #d2601a;
+    border-top:none;
+    border-left: none;
+    border-right:none;
+    outline: none;
+    padding: 5px;
+}
+input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus,select:focus{
+    margin-top:10px;
+    padding: 10px;
+    transition-property: margin-top,border-bottom,padding;
+    border-bottom: solid 5px #d2601a;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+.submit-btn{
+    border: none;
+    outline: none;
+    background-color: #0a58ca;
+    color: #fff;
+    padding: 5px;
+    width: 50%;
+    margin-top: 20px;
+    transform: translateX(150px);
+    border-radius: 40px;
+}
+.fa-circle-exclamation{
+    color: #d72631 !important;
+    font-size: 40px;
+    margin-right:10px;
+}
+
+#error .btn-close{
+    position: relative;
+    bottom : 40px;
+    left: 380px;
+}
+#error .modal-content{
+    padding: 50px;
+    outline: solid #d72631 4px;
+    transition: outline 0.5s ease-in-out;
+}
+#done .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px !important;
+}
+#done .modal-body p{
+    font-size: 23px;
+}
+#done .modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #70e000;
+    color: #fff;
+}
+#done .modal-footer {
+    padding: 10px !important;
+    border-top: none !important;
+    /* background-color: blue !important; */
+}
+#done .modal-footer button {
+    position: relative;
+    right: 120px;
+    width: 50%;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #70e000 !important;
+    outline: none!important;
+    border: none !important;
+    font-size: 20px;
+}
+#done .fa-solid {
+    display: inline-block;
+    font-size: 100px;
+    color: #70e000 !important;
+    margin-bottom: 20px;
+}

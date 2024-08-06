@@ -1,0 +1,20 @@
+{
+    "name": "amine/eservice",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "App/core/",
+            "Controllers\\": "App/controllers/",
+            "Models\\": "App/models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amine Es-saouiqui",
+            "email": "amineessa02@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^2.2",
+        "cboden/ratchet": "^0.4.4"
+    }
+}

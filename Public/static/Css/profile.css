@@ -1,0 +1,39 @@
+.logo-section img{
+width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 100px;
+    margin-left: 100px;
+    display: inline-block;
+}
+.logo-section button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    position: relative;
+    right: 60px;
+    top: 120px;
+}
+.info-section{
+    margin-top: 60px;
+}
+table{
+    width: 100% !important;
+}
+span{
+    padding: 10px;
+    color: #fff;
+    width: fit-content;
+    border-radius: 30px;
+}
+tbody{
+    width: 100%;
+}
+tr{
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}

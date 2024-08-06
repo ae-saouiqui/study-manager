@@ -1,0 +1,213 @@
+
+#supprimer-etud .modal-header,#ajouter-etud modal-header,
+{
+    border-bottom: solid 0.5px #d2601a;
+}
+#supprimer-etud .modal-body form,#ajouter-etud .modal-body form{
+    display: flex;
+    flex-direction: column;
+}
+#supprimer-etud .modal-body,#ajouter-etud .modal-body{
+    padding: 30px;
+}
+#supprimer-etud .modal-body form input,#ajouter-etud .modal-body form input{
+    margin: 10px 0;
+}
+#supprimer-etud .modal-body form input[type="text"],#ajouter-etud input[type="text"],
+input[type="number"]{
+        border-top:none;
+        border-left: none;
+        border-right: none;
+        border-bottom: solid 2px #d2601a;
+        outline: none;
+        padding: 5px;
+        box-shadow: 0px 5px 30px 4px rgba(149, 133, 133, 0.44);
+    }
+#supprimer-etud .modal-body form input[type="text"]:focus,#ajouter-etud input[type="text"]:focus,
+input[type="number"]:focus{
+        margin-top:10px;
+        padding: 7px;
+        transition-property: margin-top,border-bottom,padding;
+        border-bottom: solid 5px #d2601a;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in-out;
+}
+#supprimer-etud .modal-body form input[type="submit"],#ajouter-etud .modal-body form input[type="submit"],#ajouter-filiere input[type='submit']{
+    border-radius: 30px;
+    background-color: #0a58ca;
+    color: #fff;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+
+#deposer-note .modal-header,#exporter-note .modal-header,#deposer-cours .modal-header,#absence .modal-header{
+    background-color:#500472 !important;
+    color: #fff;
+}
+#deposer-note .modal-header button{
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff !important;
+    font-size: 20px;
+}
+#deposer-note .modal-body form,#export-note,#deposer-cours .modal-body form,#absence form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#deposer-note .modal-body form input,#deposer-cours input,#absence input{
+    margin: 20px 0;
+}
+#deposer-note select,#export-note select,#deposer-cours select,#deposer-cours input[type='text'],#absence select{
+    padding: 10px;
+    outline: none;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px #500472;
+}
+#deposer-note input[type="submit"],#export-note input[type="submit"],#deposer-cours input[type="submit"],#absence input[type='submit']{
+    border-radius: 30px;
+    background-color: #79cbb8;
+    color: #fff;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+#deposer-note select:focus,#deposer-cours input[type='text']:focus,#absence select:focus{
+    margin-top:10px;
+    padding: 7px;
+    transition-property: margin-top,border-bottom,padding;
+    border-bottom: solid 5px #500472;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+#deposer-rapport .modal-header{
+    background-color:#d72631 !important;
+    color: #fff;
+}
+#deposer-rapport .modal-header button{
+    width: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff !important;
+    font-size: 20px;
+}
+#deposer-rapport .modal-body form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+#deposer-rapport .modal-body form input{
+    margin: 20px 0;
+}
+#deposer-rapport select,input[type="text"]{
+    padding: 10px;
+    outline: none;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px #d72631;
+}
+#deposer-rapport select:focus,input[type="text"]:focus{
+    margin-top:10px;
+    padding: 7px;
+    transition-property: margin-top,border-bottom,padding;
+    border-bottom: solid 5px #d72631;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+#deposer-rapport  input[type="submit"]{
+    border-radius: 30px;
+    background-color: #0d1137;
+    color: #fff;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+#ajouter-filiere input{
+    display: inline-block;
+    margin: 10px;
+}
+#ajouter-filiere select, #create-room select{
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 2px #d2601a;
+    outline: none;
+    padding: 5px;
+    box-shadow: 0px 5px 30px 4px rgba(149, 133, 133, 0.44);
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+#ajouter-etud select{
+    margin: 10px 0;
+    outline: none !important;
+    padding: 6px !important;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:solid 3px #d2601a;
+    box-shadow: 0px 5px 30px 4px rgba(149, 133, 133, 0.44);
+}
+.fa-circle-exclamation{
+    color: #d72631 !important;
+    font-size: 40px;
+    margin-right:10px;
+}
+
+#error .btn-close{
+    position: relative;
+    bottom : 40px;
+    left: 380px;
+}
+#error .modal-content{
+    padding: 50px;
+    outline: solid #d72631 4px;
+    transition: outline 0.5s ease-in-out;
+}
+#done .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px !important;
+}
+#done .modal-body p{
+    font-size: 23px;
+}
+#done .modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: #70e000;
+    color: #fff;
+}
+#done .modal-footer {
+    padding: 10px !important;
+    border-top: none !important;
+    /* background-color: blue !important; */
+}
+#done .modal-footer button {
+    position: relative;
+    right: 120px;
+    width: 50%;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: #70e000 !important;
+    outline: none!important;
+    border: none !important;
+    font-size: 20px;
+}
+#done .fa-solid {
+    display: inline-block;
+    font-size: 100px;
+    color: #70e000 !important;
+    margin-bottom: 20px;
+}
+
+
+

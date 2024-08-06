@@ -1,0 +1,10 @@
+RewriteEngine On
+#accept loading of actual files and directories as they are (like static files in django)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# send everyting else to the index page
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+#Identify the meme type to load css and javascript files
+AddType text/css .css
+AddType application/javascript .js
