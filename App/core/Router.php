@@ -13,7 +13,7 @@ class Router
         switch($action){
             case 'getAllAnnonce':
                 $this->factory->Annonce()->getAllAnnonce();
-                header('location:./App/views/annonce.php');
+                header('location:/App/views/annonce.php');
                 break;
             case 'exportNote':
                 $this->validatorSession($_GET['prof'],'id_prof');
@@ -25,11 +25,11 @@ class Router
             case 'getNote':
                 $this->validatorSession($_GET['etud'],'id_etudiant');
                 $this->factory->Note()->getNoteParEtduiant($_GET['etud']);
-                header('location:./App/views/notes.php');
+                header('location:/App/views/notes.php');
                 break;
             case 'getCours':
                 $this->factory->Cours()->getCoursByFiliere($_GET['filiere']);
-                header('location:./App/views/cours.php');
+                header('location:/App/views/cours.php');
                 break;
             case 'getAbsence':
                 $this->validatorSession($_GET['prof'],'id_prof');
@@ -46,12 +46,12 @@ class Router
                     case 'etud':
                         $this->validatorSession($_GET['id'],'filiere');
                         $_SESSION['rooms']=$this->factory->Room()->getRoomsByFiliere($_GET['id']);
-                        header('location:./App/views/room.php?type=etudiant');
+                        header('location:/App/views/room.php?type=etudiant');
                         break;
                     case 'prof':
                         $this->validatorSession($_GET['id'],'id_prof');
                         $_SESSION['rooms']=$this->factory->Room()->getRoomByProf($_GET['id']);
-                        header('location:./App/views/room.php?type=professeur');
+                        header('location:/App/views/room.php?type=professeur');
                         break;
                 }
                 break;
@@ -61,12 +61,12 @@ class Router
             case 'getRapport':
                 $this->validatorSession($_GET['prof'],'id_prof');
                 $_SESSION['rapports']=$this->factory->Rapport()->getRapportByProf($_GET['prof']);
-                header('location:./App/views/rapport.php');
+                header('location:/App/views/rapport.php');
                 break;
             case 'getCoursProf':
                 $this->validatorSession($_GET['prof'],'id_prof');
                 $_SESSION['cours_prof']=$this->factory->Cours()->getCoursByProf($_GET['prof']);
-                header("location:./App/views/coursProf.php");
+                header("location:/App/views/coursProf.php");
                 break;
             case 'logout':
                 session_start();
@@ -75,19 +75,19 @@ class Router
             case 'getAllFiliere':
                 session_start();
                 $_SESSION['fil_full']=$this->factory->Filiere()->getAllFiliereWithPromo();
-                header('location:./App/views/filiere.php');
+                header('location:/App/views/filiere.php');
                 break;
             case 'getAllRooms':
                 session_start();
                 $_SESSION['all_rooms']=$this->factory->Room()->getAllRooms();
-                header('location:./App/views/rooms.php');
+                header('location:/App/views/rooms.php');
                 break;
             case 'getEtudiants':
                 session_start();
                 if ($_SESSION['id_admin']==$_GET['id']){
                     $_SESSION['etudiants']=$this->factory->Etudiant()->getEtudiantByFiliere($_GET['filiere']);
                     $filiere=$this->factory->Filiere()->getFiliereById($_GET['filiere']);
-                    header('location:./App/views/etudiants.php?filiere='.$filiere['nom'].'&raccourci='.$filiere['raccourci']);
+                    header('location:/App/views/etudiants.php?filiere='.$filiere['nom'].'&raccourci='.$filiere['raccourci']);
                 }else $this->logout();
                 break;
             default:
@@ -309,7 +309,7 @@ class Router
                     $this->logout();
                 }
             }}else{
-            header('location:./App/views/login.html');
+            header('location:/App/views/login.html');
         }
     }
     private function validatorSession($request,$property){
@@ -320,6 +320,6 @@ class Router
     }
     private function logout(){
         session_destroy();
-        header('location:./App/views/login.html');
+        header('location:/App/views/login.html');
     }
 }
