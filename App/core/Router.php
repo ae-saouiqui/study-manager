@@ -47,6 +47,7 @@ class Router
                         $this->validatorSession($_GET['id'],'filiere');
                         $_SESSION['rooms']=$this->factory->Room()->getRoomsByFiliere($_GET['id']);
                         header('location:/App/views/room.php?type=etudiant');
+                        exit;
                         break;
                     case 'prof':
                         $this->validatorSession($_GET['id'],'id_prof');
@@ -106,23 +107,23 @@ class Router
                     $this->factory->Connection()->addVisitor();
                     $_SESSION['visitors']=$this->factory->Connection()->getConnections();
                     switch ($respone['type']){
-                    case 'admin':
-                    $this->factory->Filiere()->getAllFilieres();
-                    $this->factory->Professeur()->getAllProfesseurIdName();
-                    break;
-                    case 'professeur':
-                        $this->factory->Filiere()->getFiliereByProf($_SESSION['id_prof']);
-                        $this->factory->Module()->getModuleByProf($_SESSION['id_prof']);
-                        break;
+                        case 'admin':
+                            $this->factory->Filiere()->getAllFilieres();
+                            $this->factory->Professeur()->getAllProfesseurIdName();
+                            break;
+                        case 'professeur':
+                            $this->factory->Filiere()->getFiliereByProf($_SESSION['id_prof']);
+                            $this->factory->Module()->getModuleByProf($_SESSION['id_prof']);
+                            break;
                         case 'etudiant':
                             $this->factory->Professeur()->getProfesseurByFiliere($_SESSION['filiere']);
                             break;
-                }}
+                    }}
                 echo json_encode($respone);
                 break;
             case 'addProf':
                 if(!empty($_POST)){
-                        $this->factory->Professeur()->ajouter($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['password'],$_POST['cin'],$_POST['birthday'],$_POST['phone'],$_POST['sexe'],(!empty($_FILES))?$_FILES['picture']:[]);
+                    $this->factory->Professeur()->ajouter($_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['password'],$_POST['cin'],$_POST['birthday'],$_POST['phone'],$_POST['sexe'],(!empty($_FILES))?$_FILES['picture']:[]);
                 }
                 break;
             case 'AddClass':
@@ -143,8 +144,8 @@ class Router
                 if (!empty($_POST)) {
                     $params=[$_POST['title'],date_format(date_create(),"Y-m-d H:i:s"),$_POST['contenu']];
                     if (!empty($_FILES)) {
-                    array_push($params,$_FILES['file']);
-                }
+                        array_push($params,$_FILES['file']);
+                    }
                     echo json_encode($this->factory->Annonce()->creerAnnonce(...$params));
                 }
                 break;
@@ -208,7 +209,7 @@ class Router
             case 'addRoom':
                 if($this->factory->Module()->isModuleExist($_POST['prof'],$_POST['filiere'])){
                     echo json_encode($this->factory->Room()->createRoom($_POST['prof'],$_POST['filiere'],$_POST['titre']));
-            }else{
+                }else{
                     echo json_encode(['success'=>false,'message'=>'Ce Professeur N\'ensigne pas cette filiere']);
                 }
                 break;
@@ -280,11 +281,17 @@ class Router
                         break;
                 }
                 break;
-            case 'sendMessage':
-                $message=json_decode(file_get_contents('php://input'),true);
-                $this->factory->Message()->addMessage($message['message'],date_format(date_create(),'Y-m-d H:i:s'),$message['sender'],$message['room']);
-                echo json_encode(['success'=>true]+$message);
-                break;
+
+            /**
+            @important : use this only if you want to connect to the Node.js websocket server (ofc locally we haven't host our websocket serve yet)
+            @important : Ensure that you disabled the Ratchet PHP websocket Server
+             */
+
+            // case 'sendMessage':
+            //     $message=json_decode(file_get_contents('php://input'),true);
+            //      $this->factory->Message()->addMessage($message['message'],date_format(date_create(),'Y-m-d H:i:s'),$message['sender'],$message['room']);
+            //     echo json_encode(['success'=>true]+$message);
+            //     break;
             default:
                 session_start();
                 $this->logout();
@@ -293,15 +300,15 @@ class Router
     }
     public function run(){
         if(!empty($_GET) or !empty($_POST)){
-        if($_SERVER['REQUEST_METHOD']==="GET"){
+            if($_SERVER['REQUEST_METHOD']==="GET"){
                 if (isset($_GET['action'])){
-                $this->get($_GET['action']);}
+                    $this->get($_GET['action']);}
                 else {
                     session_start();
                     $this->logout();
                 }
-        }
-        if($_SERVER['REQUEST_METHOD']==="POST"){
+            }
+            if($_SERVER['REQUEST_METHOD']==="POST"){
                 if(isset($_GET['action'])){
                     $this->post($_GET['action']);
                 }else{
@@ -321,5 +328,6 @@ class Router
     private function logout(){
         session_destroy();
         header('location:/App/views/login.html');
+
     }
 }

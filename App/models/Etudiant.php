@@ -9,7 +9,7 @@ use Models\Utilisateur;
 
 class Etudiant extends Utilisateur
 {
-    public static $table="ETUDIANT";
+    public static $table="etudiant";
 
     public function ajouterEtudiant($nom,$prenom,$email,$mdp,$cin,$naissance,$telephone,$sexe,$cne,$filiere)
     {
@@ -20,7 +20,7 @@ class Etudiant extends Utilisateur
             throw new \Exception("Un Utilisateur existe deja",$e);
         }
         try{
-            $this->query("INSERT INTO ETUDIANT (id_user,cne,id_filiere) VALUES(?,?,?)",array(Model::getLastId(Utilisateur::$table)[0],$cne,$filiere));
+            $this->query("INSERT INTO etudiant (id_user,cne,id_filiere) VALUES(?,?,?)",array(Model::getLastId(Utilisateur::$table)[0],$cne,$filiere));
         }catch(\PDOException $e){
             echo $e->getMessage();
             $this->supprimerUtilisateur(Model::getLastId(Utilisateur::$table)[0]);
@@ -29,16 +29,16 @@ class Etudiant extends Utilisateur
     }
 
     public function getAllEtudiant(){
-        return $this->query("SELECT * ,ETUDIANT.id as id_etud FROM ".Etudiant::$table." INNER JOIN ".Utilisateur::$table." ON ".Utilisateur::$table.".id=ETUDIANT.id_user")->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT * ,etudiant.id as id_etud FROM ".Etudiant::$table." INNER JOIN ".Utilisateur::$table." ON ".Utilisateur::$table.".id=etudiant.id_user")->fetchAll(\PDO::FETCH_ASSOC);
     }
     public function getEtudiantById($id){
-        return $this->query("SELECT * ,ETUDIANT.id as id_etud FROM ".Etudiant::$table." INNER JOIN ".Utilisateur::$table." ON ".Utilisateur::$table.".id=ETUDIANT.id_user INNER JOIN ".Filiere::$table." ON ".Filiere::$table.".id=".Etudiant::$table.".id_filiere WHERE ETUDIANT.id_user=?",[$id])->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT * ,etudiant.id as id_etud FROM ".Etudiant::$table." INNER JOIN ".Utilisateur::$table." ON ".Utilisateur::$table.".id=etudiant.id_user INNER JOIN ".Filiere::$table." ON ".Filiere::$table.".id=".Etudiant::$table.".id_filiere WHERE etudiant.id_user=?",[$id])->fetch(\PDO::FETCH_ASSOC);
     }
     public function getEtudiantByCne($cne){
-        return $this->query("SELECT * ,ETUDIANT.id as id_etud,UTILISATEUR.nom as nom_etudiant FROM ".Etudiant::$table." INNER JOIN ".Utilisateur::$table." ON ".Utilisateur::$table.".id=ETUDIANT.id_user INNER JOIN ".Filiere::$table." ON ".Filiere::$table.".id=".Etudiant::$table.".id_filiere WHERE ETUDIANT.cne=?",[$cne])->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT * ,etudiant.id as id_etud,utilisateur.nom as nom_etudiant FROM ".Etudiant::$table." INNER JOIN ".Utilisateur::$table." ON ".Utilisateur::$table.".id=etudiant.id_user INNER JOIN ".Filiere::$table." ON ".Filiere::$table.".id=".Etudiant::$table.".id_filiere WHERE etudiant.cne=?",[$cne])->fetch(\PDO::FETCH_ASSOC);
     }
     public function getEtudiantUserId($id){
-        return $this->query("SELECT id_user FROM ETUDIANT WHERE id=?",array($id))->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT id_user FROM etudiant WHERE id=?",array($id))->fetch(\PDO::FETCH_ASSOC);
     }
     public function supprimerEtudiant($id){
         $user=$this->getEtudiantUserId($id);
@@ -64,7 +64,7 @@ class Etudiant extends Utilisateur
         parent::modifierPhotoProfile($photo, $user['id_user']);
     }
     public function isExist($cin="",$phone="",$cne=""){
-        return $this->query("SELECT COUNT(*)  as result FROM ETUDIANT RIGHT JOIN UTILISATEUR ON ETUDIANT.id_user=UTILISATEUR.id where cin=?  or telephone=? or cne=?",array($cin,$phone,$cne))->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT COUNT(*)  as result FROM etudiant RIGHT JOIN utilisateur ON etudiant.id_user=utilisateur.id where cin=?  or telephone=? or cne=?",array($cin,$phone,$cne))->fetch(\PDO::FETCH_ASSOC);
     }
     public function supprimerEtudiantbyCNE($cne)
     {
@@ -76,9 +76,9 @@ class Etudiant extends Utilisateur
         }
     }
     public function getPromotion($id){
-        return $this->query("SELECT annee  FROM ETUDIANT INNER JOIN FILIERE ON ETUDIANT.id_filiere=FILIERE.id INNER JOIN PROMOTION ON FILIERE.id_promo=PROMOTION.id WHERE ETUDIANT.id=?",array($id))->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT annee  FROM etudiant INNER JOIN filiere ON etudiant.id_filiere=filiere.id INNER JOIN promotion ON filiere.id_promo=promotion.id WHERE etudiant.id=?",array($id))->fetch(\PDO::FETCH_ASSOC);
     }
     public function getEtudiantByFiliere($filiere){
-        return $this->query("SELECT ETUDIANT.id,cne,UTILISATEUR.nom,prenom,telephone,photo_profile FROM ETUDIANT INNER JOIN FILIERE ON ETUDIANT.id_filiere=FILIERE.id INNER JOIN UTILISATEUR ON ETUDIANT.id_user=UTILISATEUR.id WHERE ETUDIANT.id_filiere=?",array($filiere))->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT etudiant.id,cne,utilisateur.nom,prenom,telephone,photo_profile FROM etudiant INNER JOIN filiere ON etudiant.id_filiere=filiere.id INNER JOIN utilisateur ON etudiant.id_user=utilisateur.id WHERE etudiant.id_filiere=?",array($filiere))->fetchAll(\PDO::FETCH_ASSOC);
 }
 }

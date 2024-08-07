@@ -6,11 +6,11 @@ use Models\Utilisateur;
 
 class Admin extends Utilisateur
 {
-    public static $table="ADMIN";
+    public static $table="admin";
     public function ajouterAdmin($nom,$prenom,$email,$mdp,$cin,$naissance,$telephone,$sexe){
         try {
             $this->ajouterUtilisateur(...func_get_args());
-            $this->query("INSERT INTO ADMIN (id_user) VALUES (?)", Model::getLastId(\Models\Utilisateur::$table));
+            $this->query("INSERT INTO admin (id_user) VALUES (?)", Model::getLastId(\Models\Utilisateur::$table));
         }catch(\PDOException $e){
             throw new \Exception("Un attribut existe deja ",$e);
         }}
@@ -19,7 +19,7 @@ class Admin extends Utilisateur
         if(!empty($user)){
             try {
                 $this->beginTransaction();
-            $this->query("DELETE FROM ADMIN WHERE id_user=?",[$user['id_user']]);
+            $this->query("DELETE FROM admin WHERE id_user=?",[$user['id_user']]);
             $this->supprimerUtilisateur($user['id_user']);
             $this->commmit();
             $this->rollback();
@@ -59,10 +59,10 @@ class Admin extends Utilisateur
         return $this->query("SELECT * , ".Admin::$table.".id as id_admin FROM ".Admin::$table." INNER JOIN ".Utilisateur::$table." ON ".Admin::$table.".id_user=".Utilisateur::$table.".id")->fetchAll(\PDO::FETCH_ASSOC);
     }
     public function getAdminById($id){
-        return $this->query("SELECT * ,ADMIN.id as id_admin FROM ".Admin::$table." INNER JOIN ".Utilisateur::$table." ON ADMIN.id_user=".Utilisateur::$table.".id WHERE admin.id = ?",array($id))->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT * ,admin.id as id_admin FROM ".Admin::$table." INNER JOIN ".Utilisateur::$table." ON admin.id_user=".Utilisateur::$table.".id WHERE admin.id = ?",array($id))->fetch(\PDO::FETCH_ASSOC);
 }
    public function getAdminUserId($id){
-        return $this->query("SELECT admin.id_user FROM ADMIN WHERE admin.id = ?",array($id))->fetch(\PDO::FETCH_ASSOC);
+        return $this->query("SELECT admin.id_user FROM admin WHERE admin.id = ?",array($id))->fetch(\PDO::FETCH_ASSOC);
 }
    public function getAdminUser($admin){
         $user=$this->getAdminUserId($admin);

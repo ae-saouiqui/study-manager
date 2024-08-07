@@ -1,10 +1,13 @@
 <?php
-
+/**
+ * @author : Es-saouiqui Amine
+*/
 namespace Core;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 use Ratchet\Http\HttpServer;
 use Core\Chat;
+
 class Server
 {
     private $server;
