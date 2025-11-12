@@ -1,6 +1,7 @@
 <?php
 /**
- * @important :  run this one in the command line prompt before starting the project
+ * @important :  Host this in a reactive server/async server.
+   @important :  Ensure you disable the hosting glitch node server 
 */
 require_once 'vendor/autoload.php';
 use Core\Server;
