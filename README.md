@@ -153,6 +153,30 @@ study-manager/
 ```
 ---
 
+## Namespaces & Autoloading
+
+The project uses **Composer PSR-4 autoloading** to map PHP namespaces to directories.
+
+The configuration is defined in `composer.json`:
+
+```json
+"autoload": {
+    "psr-4": {
+        "Core\\": "App/core/",
+        "Controllers\\": "App/controllers/",
+        "Models\\": "App/models/"
+    }
+}
+```
+This means:
+| Namespace      | Directory          | Purpose                                                                                    |
+| -------------- | ------------------ | ------------------------------------------------------------------------------------------ |
+| `Core\`        | `App/core/`        | Core application components such as routing, database access, validation, and server logic |
+| `Controllers\` | `App/controllers/` | Controllers responsible for handling application requests                                  |
+| `Models\`      | `App/models/`      | Models responsible for application data and business logic                                 |
+
+---
+
 ## Database
 
 The project includes an SQL database dump:
