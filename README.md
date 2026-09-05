@@ -338,5 +338,10 @@ http://localhost/study-manager/
 The included `.htaccess` file is used to support application routing.
 
 ---
-
+## Screen Shots : 
+### 1. Login Page : 
+<p align="center">
+  <img src="images/login.png" alt="Login Page" width="900">
+</p>
+### 2 . Admin Dashboard : 
 
