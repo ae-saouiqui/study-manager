@@ -20,22 +20,14 @@
 ## Table of Content : 
 ---
 
-- [Overview](overview)
-
-
-- [Features](features)
-
-- [Architecture](architecture)
-
-- [Project Structure](project-structure)
-
-- [Namespaces & Autoloading](namespaces-&-autoloading)
-
-- [Database](database)
-
-- [Installation](installation)
-
-- [Screen Shots](screen-shots)
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Namespaces & Autoloading](#namespaces--autoloading)
+- [Database](#database)
+- [Installation](#installation)
+- [Screenshots](#screen-shots)
 
 ---
 
@@ -377,7 +369,7 @@ The included `.htaccess` file is used to support application routing.
 
 ---
 
-## Screen Shots : 
+## Screen Shots  
 ### 1. Login Page : 
 <p align="center">
   <img src="images/login.png" alt="Login Page" width="900">
