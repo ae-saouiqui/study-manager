@@ -282,12 +282,6 @@ class Router
                 }
                 break;
 
-            /**
-            @important : use this only if you want to connect to the Node.js websocket server (if no comment this case instructions) 
-            @important : A Node.js Server will be provided Soon .
-            @important : Ensure that you disabled the Ratchet PHP websocket Server
-             */
-
              case 'sendMessage':
                  $message=json_decode(file_get_contents('php://input'),true);
                   $this->factory->Message()->addMessage($message['message'],date_format(date_create(),'Y-m-d H:i:s'),$message['sender'],$message['room']);

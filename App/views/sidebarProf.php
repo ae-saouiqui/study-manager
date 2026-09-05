@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if(!empty($_SESSION)){
     $user = (object)unserialize($_SESSION['professeur']);
     if(isset($_SESSION['filiere_prof']))$filieres = $_SESSION['filiere_prof'];

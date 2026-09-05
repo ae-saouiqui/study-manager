@@ -2,7 +2,7 @@
 /**
  * @author : Es-saouiqui Amine
 */
-define('DBHOST', '');
-define('DBUSER', '');
-define('DBPASS', '');
+define('DBHOST', 'db');
+define('DBUSER', 'root');
+define('DBPASS', 'root');
 define('DBNAME', 'ESERVICE');

@@ -36,7 +36,10 @@ class Chat implements MessageComponentInterface
     {
         $data = json_decode($msg);
         $date=date_format(date_create(),"Y-m-d H:i:s");
-            $this->message->addMessage($data->message,$date,$data->sender,$data->room);
+                    /**
+             * We choose to seprate message saving from channel service
+             */
+            // $this->message->addMessage($data->message,$date,$data->sender,$data->room);
         foreach ($this->clients as $client) {
             if($client!==$from)$client->send(json_encode(["success"=>true,"message"=>$data->message,"profile"=>$data->profile,"name"=>$data->name,"date"=>$date,"room"=>$data->room]));
         }

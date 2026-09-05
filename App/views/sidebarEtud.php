@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if(!empty($_SESSION)) {
     $user = unserialize($_SESSION['etudiant']);
     $profs = $_SESSION['profs_filiere'];

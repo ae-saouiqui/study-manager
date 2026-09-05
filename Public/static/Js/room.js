@@ -86,7 +86,7 @@ btn.addEventListener('click',(event)=>{
     let modal=createErrorModalelement();
   declareError("Un erreur S'est produite lors d'envoi de cette message ");
 }});
-let socket=new WebSocket("ws://localhost:8080");
+let socket=new WebSocket("ws://localhost:8081");
 socket.onopen=(e)=>{
     console.log("Connection established");
 }

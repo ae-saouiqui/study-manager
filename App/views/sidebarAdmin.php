@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if(!empty($_SESSION)) {
         $user = (object)unserialize($_SESSION['admin']);
         $admin = $_SESSION['id_admin'];

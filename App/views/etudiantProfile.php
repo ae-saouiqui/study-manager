@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['etudiant'])) {
+    header('Location: /index.php?action=logout');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
