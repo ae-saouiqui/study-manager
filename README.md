@@ -2,6 +2,43 @@
 ---
 > A web-based academic management platform designed to centralize and simplify the management of students, professors, courses, grades, absences, announcements, reports, rooms, and academic communication.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white" alt="MySQL">
+  <img src="https://img.shields.io/badge/Apache-2.4-D22128?logo=apache&logoColor=white" alt="Apache">
+  <img src="https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?logo=bootstrap&logoColor=white" alt="Bootstrap">
+  <img src="https://img.shields.io/badge/Composer-2-885630?logo=composer&logoColor=white" alt="Composer">
+  <img src="https://img.shields.io/badge/Ratchet-WebSocket-000000?logo=php&logoColor=white" alt="Ratchet">
+  <img src="https://img.shields.io/badge/PhpSpreadsheet-2.2-777BB4?logo=php&logoColor=white" alt="PhpSpreadsheet">
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Git-Version_Control-F05032?logo=git&logoColor=white" alt="Git">
+</p>
+
+## Table of Content : 
+---
+
+- [Overview](overview)
+
+
+- [Features](features)
+
+- [Architecture](architecture)
+
+- [Project Structure](project-structure)
+
+- [Namespaces & Autoloading](namespaces-&-autoloading)
+
+- [Database](database)
+
+- [Installation](installation)
+
+- [Screen Shots](screen-shots)
+
+---
+
 ## Overview
 
 `Study Manager` is a web application developed to provide a centralized platform for managing academic activities within an educational institution.
@@ -16,6 +53,7 @@ The application follows an MVC-inspired architecture, separating:
 - Core — reusable application infrastructure such as routing, database access, validation, file downloads, and communication
 
 The project also integrates WebSocket communication and Excel file processing for additional functionality.
+
 
 ## Features
 ### Student Management
@@ -257,10 +295,10 @@ Update the database configuration in:
 
 Configure the appropriate:
 
-Database host
-Database name
-Database username
-Database password
+- Database host
+- Database name
+- Database username
+- Database password
 
 Make sure the configuration matches your local MySQL environment.
 
@@ -338,10 +376,44 @@ http://localhost/study-manager/
 The included `.htaccess` file is used to support application routing.
 
 ---
+
 ## Screen Shots : 
 ### 1. Login Page : 
 <p align="center">
   <img src="images/login.png" alt="Login Page" width="900">
 </p>
-### 2 . Admin Dashboard : 
 
+### 2 . Admin Dashboard : 
+<p align="center">
+  <img src="images/admin-dashboard.png" alt="Admin Dashboard" width="900">
+</p>
+
+### 3. Professor Dashboard : 
+
+<p align="center">
+  <img src="images/professor-dashboard.png" alt="Professor Dashoard" width="900">
+</p>
+
+### 4. Student Dashboard : 
+
+<p align="center">
+  <img src="images/student-dashboard.png" alt="Students Dashboard" width="900">
+</p>
+
+### 5. Anouncement Page :
+
+<p align="center">
+  <img src="images/announcement-section.png" alt="Anouncement Example" width="900">
+</p>
+
+### 6. Modal example  :
+
+<p align="center">
+  <img src="images/modal-example.png" alt="modal example" width="900">
+</p>
+
+### 7. Room section  : 
+
+<p align="center">
+  <img src="images/room-conversation.png" alt="Students Dashboard" width="900">
+</p>
