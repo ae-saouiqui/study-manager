@@ -203,7 +203,15 @@ The database contains the data required by the different modules of the applicat
 ---
 
 ## Installation
-### Prerequisites
+
+There are two ways to run **Study Manager**:
+
+- **Local installation** — requires PHP, MySQL, Apache, and Composer.
+- **Docker** — recommended for a quick and isolated setup without installing PHP, MySQL, or Composer locally.
+
+---
+### Option 1 : Local Installation : 
+#### Prerequisites
 
 Make sure the following software is installed:
 
@@ -257,6 +265,61 @@ Database password
 Make sure the configuration matches your local MySQL environment.
 
 ---
+
+### Option 2: Docker
+
+Docker provides an alternative way to run the complete application without requiring PHP, Composer, MySQL, or Apache to be installed locally.
+
+The Docker setup includes:
+
+- PHP 8.2 + Apache
+- MySQL 8.0
+- Ratchet WebSocket server
+- Composer dependencies
+- Database initialization from eservice.sql
+- Prerequisites
+
+Install:
+
+- Docker
+- Docker Compose
+
+Docker Desktop includes Docker Compose.
+
+1. Clone the Repository
+```bash
+git clone https://github.com/your-username/study-manager.git
+cd study-manager
+```
+3. Start the Application
+
+Build the Docker images and start all services:
+```bash
+docker compose up -d --build
+```
+This starts the following services:
+
+- Service	Description	Host
+- web	PHP + Apache application	localhost:8080
+- websocket	Ratchet WebSocket server	localhost:8081
+- db	MySQL database	Container only
+3. Access the Application
+
+Open:
+
+`http://localhost:8080`
+
+The WebSocket server is exposed separately at:
+
+`ws://localhost:8081`
+
+Docker maps the WebSocket host port to the internal Ratchet port:
+
+8081 → 8080
+
+where 8081 is the host port and 8080 is the port used by Ratchet inside the container.
+
+
 ## Running the Application
 Using Apache
 
@@ -276,13 +339,4 @@ The included `.htaccess` file is used to support application routing.
 
 ---
 
-## WebSocket Server
-
-The project also contains:
-
-`server.php`
-
-which is used for the application's real-time communication infrastructure.
-
-The WebSocket server can be started according to the configuration implemented in the project.
 
